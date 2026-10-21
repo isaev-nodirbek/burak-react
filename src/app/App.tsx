@@ -1,14 +1,25 @@
-import React from "react";
-// @ts-ignore CSS is handled by the app's bundler.
+import { Box, Button, Container, Stack } from "@mui/material";
 import "../css/app.css";
+import { Typography } from "@mui/material";
+import { RippleBadge } from "./MaterialTheme/styled";
 
 function App() {
-  return <div>HOME</div>;
+  return (
+    <Container sx={{ background: "orange" }}>
+      <Stack direction="column">
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h4" component={"h4"}>
+            Create React App on TypeScript with REDUX
+          </Typography>
+        </Box>
+        <Box>
+          <RippleBadge badgeContent={4}>
+            <Button variant="contained">Contained</Button>
+          </RippleBadge>
+        </Box>
+      </Stack>
+    </Container>
+  );
 }
 
 export default App;
-
-
-
-
-
