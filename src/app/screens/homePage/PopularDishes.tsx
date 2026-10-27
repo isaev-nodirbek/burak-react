@@ -5,7 +5,6 @@ import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
-import JoyStack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
@@ -24,61 +23,65 @@ export default function PopularDishes() {
         <Stack className="popular-section">
           <Box className="category-title">Popular Dishes</Box>
           <CssVarsProvider>
-            <JoyStack direction="row" className="cards-frame">
-                {list.map((ele, index) => (
+            <Stack direction="row" className="cards-frame">
+              {list.length !== 0 ? (
+                list.map((ele, index) => (
                   <Card className="card" key={index}>
-                    <CardCover>
-                      <img src={ele.imagePath} alt={ele.productName} />
-                    </CardCover>
-                    <CardCover className="card-cover" />
-                    <CardContent sx={{ justifyContent: "flex-end" }}>
-                      <JoyStack
-                        direction="row"
-                        sx={{ justifyContent: "space-between" }}
-                      >
-                        <Typography
-                          level="h2"
-                          fontSize="lg"
-                          textColor="#fff"
-                          mb={1}
-                        >
-                          {ele.productName}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: "md",
-                            color: "neutral.300",
-                            alignItems: "center",
-                            display: "flex",
-                          }}
-                        >
-                          20
-                          <VisibilityIcon
-                            style={{ fontSize: 25, marginLeft: 5 }}
-                          />
-                        </Typography>
-                      </JoyStack>
-                    </CardContent>
-                    <CardOverflow
-                      sx={{
-                        display: "flex",
-                        gap: 1.5,
-                        py: 1.5,
-                        px: "var(--Card-padding)",
-                        borderTop: "1px solid",
-                        height: "60px",
-                      }}
+                  <CardCover>
+                    <img src={ele.imagePath} alt={ele.productName} />
+                  </CardCover>
+                  <CardCover className="card-cover" />
+                  <CardContent sx={{ justifyContent: "flex-end" }}>
+                    <Stack
+                      direction="row"
+                      sx={{ justifyContent: "space-between" }}
                     >
                       <Typography
-                        startDecorator={<DescriptionOutlinedIcon />}
-                        textColor="neutral.300"
+                        level="h2"
+                        fontSize="lg"
+                        textColor="#fff"
+                        mb={1}
                       >
-                        This is delicious meal
+                        {ele.productName}
                       </Typography>
-                    </CardOverflow>
+                      <Typography
+                        sx={{
+                          fontWeight: "md",
+                          color: "neutral.300",
+                          alignItems: "center",
+                          display: "flex",
+                        }}
+                      >
+                        20
+                        <VisibilityIcon
+                          style={{ fontSize: 25, marginLeft: 5 }}
+                        />
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                  <CardOverflow
+                    sx={{
+                      display: "flex",
+                      gap: 1.5,
+                      py: 1.5,
+                      px: "var(--Card-padding)",
+                      borderTop: "1px solid",
+                      height: "60px",
+                    }}
+                  >
+                    <Typography
+                      startDecorator={<DescriptionOutlinedIcon />}
+                      textColor="neutral.300"
+                    >
+                      This is delicious meal
+                    </Typography>
+                  </CardOverflow>
                   </Card>
-                ))}
-            </JoyStack>
+                ))
+              ) : (
+                <Box className="no-data">Popular products are not available!</Box>
+              )}
+            </Stack>
           </CssVarsProvider>
         </Stack>
       </Container>
