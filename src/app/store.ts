@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import reduxLogger from "redux-logger";
 
 export const store = configureStore({
-  // Redux requires at least one reducer. Keep the root state empty until the
-  // app adds feature slices.
-  reducer: (state = {}) => state,
+  middleware: (getDefaultMiddleware) =>
+    // @ts-ignore
+    getDefaultMiddleware().concat(reduxLogger),
+  reducer: {},
 });
 
 export type AppDispatch = typeof store.dispatch;

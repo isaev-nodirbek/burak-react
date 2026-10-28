@@ -44,8 +44,6 @@ export default function HomeNavbar() {
                 Help
               </NavLink>
             </Box>
-
-            {/* BASKET */}
             <Basket />
 
             {!authMember ? (
@@ -57,29 +55,29 @@ export default function HomeNavbar() {
             ) : (
               <img
                 className="user-avatar"
-                src="/icons/default-user.svg"
+                src={"/icons/default-user.svg"}
                 aria-haspopup={"true"}
               />
             )}
           </Stack>
         </Stack>
-        <Stack className="header-frame">
-          <Stack className="detail">
-            <Box className={"head-main-text"}>
+        <Stack className={"header-frame"}>
+          <Stack className={"detail"}>
+            <Box className={"head-main-txt"}>
               World's Most Delicious Cousine
             </Box>
-            <Box className={"wel-txt"}>The choice, not just a choice</Box>
-            <Box className={"service-text"}>24 hours service</Box>
+            <Box className={"wel-txt"}>The Choice, not just a choice</Box>
+            <Box className={"service-txt"}>24 hours service</Box>
             <Box className={"signup"}>
               {!authMember ? (
-                <Button variant="contained" className="signup-btn">
+                <Button variant={"contained"} className={"signup-button"}>
                   SIGN UP
                 </Button>
               ) : null}
             </Box>
           </Stack>
-          <Box className="logo-frame">
-            <div className="logo-img"></div>
+          <Box className={"logo-frame"}>
+            <div className={"logo-img"}></div>
           </Box>
         </Stack>
       </Container>

@@ -20,8 +20,8 @@
 }
 
 .home-navbar .navbar-container .menu .brand-logo {
-  width: 125px;
-  height: 30px;
+  width: 180px;
+  height: 40px;
 }
 
 .home-navbar .navbar-container .menu .links {
@@ -33,7 +33,7 @@
 }
 
 .home-navbar .navbar-container .menu .links .login-button {
-  background-color: #3776cc;
+  background: #3776cc;
   color: #f8f8ff;
 }
 
@@ -46,6 +46,7 @@
 .home-navbar a {
   text-decoration: none;
 }
+
 .home-navbar .hover-line a {
   color: #f8f8ff;
   z-index: 100;
@@ -56,6 +57,7 @@
   content: "";
   border-bottom: solid 2px #d7b686;
 }
+
 .home-navbar .hover-line:after {
   display: block;
   content: "";
@@ -63,9 +65,11 @@
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
+
 .home-navbar .hover-line:hover:after {
   transform: scaleX(1);
 }
+
 .home-navbar div.hover-line:after {
   transform-origin: 0% 50%;
 }
@@ -84,10 +88,9 @@
   flex-direction: column;
 }
 
-.home-navbar .navbar-container .header-frame .detail .head-main-text {
+.home-navbar .navbar-container .header-frame .detail .head-main-txt {
   width: 450px;
   height: 150px;
-
   font-family: "Roboto Serif";
   font-size: 50px;
   font-style: normal;
@@ -100,7 +103,6 @@
 .home-navbar .navbar-container .header-frame .detail .wel-txt {
   width: 510px;
   height: 42px;
-
   font-family: "Roboto Serif";
   font-size: 36px;
   font-style: normal;
@@ -110,11 +112,10 @@
   color: #d7b686;
 }
 
-.home-navbar .navbar-container .header-frame .detail .service-text {
+.home-navbar .navbar-container .header-frame .detail .service-txt {
   margin-top: 23px;
   width: 153px;
   height: 23px;
-
   font-family: "Roboto Serif";
   font-size: 20px;
   font-style: normal;
@@ -128,12 +129,11 @@
   margin-top: 73px;
 }
 
-.home-navbar .navbar-container .detail .signup-btn {
+.home-navbar .navbar-container .detail .signup .signup-button {
   width: 210px;
   height: 60px;
   border-radius: 4px;
-  background-color: #1976d2;
-
+  background: #1976d2;
   text-align: center;
   font-family: Poppins;
   font-size: 17px;
@@ -152,13 +152,11 @@
 .home-navbar .navbar-container .logo-frame .logo-img {
   width: 100%;
   height: 100%;
-  background: url("/public/img/logo.webp");
+  background: url("../../public/img/logo.webp");
   background-size: contain;
   background-repeat: no-repeat;
   filter: invert(25%);
 }
-
-/* Other navbar */
 
 .other-navbar {
   width: 100%;
@@ -181,8 +179,8 @@
 }
 
 .other-navbar .navbar-container .menu .brand-logo {
-  width: 125px;
-  height: 30px;
+  width: 180px;
+  height: 40px;
 }
 
 .other-navbar .navbar-container .menu .links {
@@ -194,7 +192,7 @@
 }
 
 .other-navbar .navbar-container .menu .links .login-button {
-  background-color: #3776cc;
+  background: #3776cc;
   color: #f8f8ff;
 }
 
@@ -207,6 +205,7 @@
 .other-navbar a {
   text-decoration: none;
 }
+
 .other-navbar .hover-line a {
   color: #f8f8ff;
   z-index: 100;
@@ -217,6 +216,7 @@
   content: "";
   border-bottom: solid 2px #d7b686;
 }
+
 .other-navbar .hover-line:after {
   display: block;
   content: "";
@@ -224,9 +224,11 @@
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
+
 .other-navbar .hover-line:hover:after {
   transform: scaleX(1);
 }
+
 .other-navbar div.hover-line:after {
   transform-origin: 0% 50%;
 }
