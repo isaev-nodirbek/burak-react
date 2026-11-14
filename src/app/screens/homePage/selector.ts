@@ -3,7 +3,7 @@ import { AppRootState } from "../../../lib/types/screen";
 
 const selectHomePage = (state: AppRootState) => state.homePage;
 
-export const retrievePopulardishes = createSelector(
+export const retrievePopularDishes = createSelector(
   selectHomePage,
   (HomePage) => HomePage.popularDishes,
 );
