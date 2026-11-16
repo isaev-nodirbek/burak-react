@@ -2,6 +2,7 @@ import { Member } from "./member";
 import { Product } from "./product";
 
 /** REACT APP STATE **/
+/****.  type inegration for whole app.  ****/
 export interface AppRootState {
   homePage: HomePageState;
 }
