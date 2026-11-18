@@ -24,9 +24,12 @@ const chosenProductRetriever = createSelector(
     chosenProduct,
   }),
 );
-const restaurantRetriever = createSelector(retrieveRestaurant, (products) => ({
-  products,
-}));
+const restaurantRetriever = createSelector(
+  retrieveRestaurant,
+  (restaurant) => ({
+    restaurant,
+  }),
+);
 
 export default function ChosenProduct() {
   return (
