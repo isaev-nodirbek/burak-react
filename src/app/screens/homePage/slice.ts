@@ -16,7 +16,6 @@ const homePageSlice = createSlice({
   reducers: {
     setPopularDishes: (state, action) => {
       // boyitish
-
       state.popularDishes = action.payload;
     },
 
