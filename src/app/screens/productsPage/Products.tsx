@@ -45,7 +45,7 @@ export default function Products() {
   const [searchText, setSearchText] = useState<string>("");
   const history = useHistory();
 
-  //**USEEFFECT */
+  //** USEEFFECT */
 
   useEffect(() => {
     const product = new ProductService();
@@ -81,7 +81,7 @@ export default function Products() {
 
   const searchProductHandler = () => {
     productSearch.search = searchText;
-    setProductSearch({ ...productSearch });
+    setProductSearch({ ...productSearch }); // yangi refrence hosil qilish
   };
 
   const paginationHandler = (e: ChangeEvent<any>, value: number) => {
@@ -92,7 +92,6 @@ export default function Products() {
   const chooseDishHandler = (id: string) => {
     history.push(`/products/${id}`);
   };
-
   return (
     <div className={"products"}>
       <Container>

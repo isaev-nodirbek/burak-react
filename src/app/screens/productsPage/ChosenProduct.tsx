@@ -7,6 +7,11 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Divider from "../../components/divider";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import { setChosenProduct, setRestaurant } from "./slice";
 
 import { useEffect } from "react";
@@ -18,6 +23,7 @@ import { Product } from "../../../lib/types/product";
 import MemberService from "../../services/MemberService";
 import ProductService from "../../services/ProductService";
 import { retrieveChosenProduct, retrieveRestaurant } from "./selector";
+import { FreeMode, Thumbs, Navigation } from "swiper/modules";
 
 /** REDUX SLICE*/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -72,6 +78,7 @@ export default function ChosenProduct() {
             loop={true}
             spaceBetween={10}
             navigation={true}
+            modules={[FreeMode, Navigation, Thumbs]}
             className="swiper-area"
           >
             {chosenProduct?.productImages.map((ele: string, index: number) => {
