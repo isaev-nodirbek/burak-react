@@ -1,6 +1,6 @@
 import { serverApi } from "../../lib/config";
 import axios from "axios";
-import { Member } from "../../lib/types/member";
+import { LoginInput, Member, MemberInput } from "../../lib/types/member";
 
 class MemberService {
   private readonly path: string;
@@ -32,6 +32,40 @@ class MemberService {
       return restaurant;
     } catch (err) {
       console.log("Error,getRestaurant:", err);
+      throw err;
+    }
+  }
+
+  public async sigup(input: MemberInput): Promise<Member> {
+    try {
+      let url = this.path + "/member/signup";
+      const result = await axios.post(url, input, { withCredentials: true });
+      console.log("result:", result);
+
+      const member: Member = result.data.member;
+      console.log("member: ", member);
+      localStorage.setItem("memberData", JSON.stringify(member));
+
+      return member;
+    } catch (err) {
+      console.log("Error, Signup: ", err);
+      throw err;
+    }
+  }
+
+  public async login(input: LoginInput): Promise<Member> {
+    try {
+      let url = this.path + "/member/login";
+      const result = await axios.post(url, input, { withCredentials: true });
+      console.log("login:", result);
+
+      const member: Member = result.data.member;
+      console.log("member: ", member);
+      localStorage.setItem("memberData", JSON.stringify(member));
+
+      return member;
+    } catch (err) {
+      console.log("Error, Signup: ", err);
       throw err;
     }
   }
