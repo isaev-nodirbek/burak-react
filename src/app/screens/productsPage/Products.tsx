@@ -18,6 +18,7 @@ import { Product, ProductInquiry } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import { retrieveProducts } from "./selector";
 import { setProducts } from "./slice";
+import { CartItem } from "../../../lib/types/search";
 
 /** REDUX SLICE*/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -28,8 +29,12 @@ const actionDispatch = (dispatch: Dispatch) => ({
 const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
+interface ProductProps {
+  onAdd: (item: CartItem) => void;
+}
 
-export default function Products() {
+export default function Products(props: ProductProps) {
+  const { onAdd } = props;
   const { setProducts } = actionDispatch(useDispatch());
   const { products } = useSelector(productsRetriever);
 
@@ -267,7 +272,19 @@ export default function Products() {
                         sx={{ backgroundImage: `url(${imagePath})` }}
                       >
                         <div className={"product-sale"}>{sizeVolume}</div>
-                        <Button className={"shop-btn"}>
+                        <Button
+                          className={"shop-btn"}
+                          onClick={(e) => {
+                            onAdd({
+                              _id: product._id,
+                              quantity: 1,
+                              name: product.productName,
+                              price: product.productPrice,
+                              image: product.productImages[0],
+                            });
+                            e.stopPropagation();
+                          }}
+                        >
                           <img
                             src={"/icons/shopping-cart.svg"}
                             alt=""

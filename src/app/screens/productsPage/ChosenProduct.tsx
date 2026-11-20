@@ -24,6 +24,7 @@ import MemberService from "../../services/MemberService";
 import ProductService from "../../services/ProductService";
 import { retrieveChosenProduct, retrieveRestaurant } from "./selector";
 import { FreeMode, Thumbs, Navigation } from "swiper/modules";
+import { CartItem } from "../../../lib/types/search";
 
 /** REDUX SLICE*/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -43,8 +44,13 @@ const restaurantRetriever = createSelector(
   }),
 );
 
-export default function ChosenProduct() {
-  const { productId } = useParams<{ productId: string }>();
+interface ChosenProductProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function ChosenProduct(props: ChosenProductProps) {
+  const { onAdd } = props;
+  const { productId } = useParams<{ productId: string }>(); // productId ni qabul qilib olamiz
   const { setRestaurant, setChosenProduct } = actionDispatch(useDispatch());
 
   const { chosenProduct } = useSelector(chosenProductRetriever);
@@ -107,7 +113,11 @@ export default function ChosenProduct() {
                 </div>
               </div>
             </Box>
-            <p className={"product-desc"}>{chosenProduct?.productDesc}</p>
+            <p className={"product-desc"}>
+              {chosenProduct?.productDesc
+                ? chosenProduct.productDesc
+                : "No Description"}
+            </p>
             <Divider height="1" width="100%" bg="#000000" />
             <div className={"product-price"}>
               <span>Price:</span>
