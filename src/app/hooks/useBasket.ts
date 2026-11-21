@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CartItem } from "../../lib/types/search";
 
 const useBasket = () => {
+  // page yangilanganida basketdagi productlarni qayta localstorage dan olib keladi
   const cartJson: string | null = localStorage.getItem("cartData");
   const currentCard = cartJson ? JSON.parse(cartJson) : [];
   const [cartItems, setCartItems] = useState<CartItem[]>(currentCard);

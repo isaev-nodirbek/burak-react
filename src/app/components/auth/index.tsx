@@ -96,7 +96,6 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       handleSignupClose();
     } catch (err) {
       console.log(err);
-      handleSignupClose();
       sweetErrorHandling(err).then();
     }
   };
@@ -116,10 +115,9 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
 
       // saving authenticated user
       setAuthMember(result);
-      handleSignupClose();
+      handleLoginClose();
     } catch (err) {
       console.log(err);
-      handleSignupClose();
       sweetErrorHandling(err).then();
     }
   };
