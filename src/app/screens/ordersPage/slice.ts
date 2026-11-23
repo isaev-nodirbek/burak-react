@@ -10,7 +10,7 @@ const initialState: OrdersPageState = {
 
 const ordersPageSlice = createSlice({
   // OPTIONS
-  name: "homePage",
+  name: "ordersPage",
   initialState,
   // Reducer helps to change data inside  STORE
   reducers: {
